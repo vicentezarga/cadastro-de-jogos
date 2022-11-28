@@ -9,3 +9,9 @@ JPA libriary
 JSF library
 SGBD Mysql
 ````
+
+>Para rodar arquivo App.js
+
+````
+node app.js
+````
