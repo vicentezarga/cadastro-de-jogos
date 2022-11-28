@@ -1,4 +1,4 @@
-<h1>Sistema de Locação de Carros</h1>
+<h1>Sistema de Cadastro de Jogos</h1>
 
 >Status projeto - Em desenvolvimento
 
