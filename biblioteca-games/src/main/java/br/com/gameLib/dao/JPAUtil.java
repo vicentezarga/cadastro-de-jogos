@@ -1,4 +1,4 @@
-package br.com.gameLib.persistencia;
+package br.com.gameLib.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

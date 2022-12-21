@@ -1,4 +1,4 @@
-package br.com.gameLib.persistencia.jogo;
+package br.com.gameLib.dao.jogo;
 
 import java.util.List;
 
