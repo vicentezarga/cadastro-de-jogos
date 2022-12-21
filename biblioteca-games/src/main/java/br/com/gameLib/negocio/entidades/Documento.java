@@ -1,4 +1,4 @@
-package br.com.negocio.entidades;
+package br.com.gameLib.negocio.entidades;
 
 import java.util.Date;
 

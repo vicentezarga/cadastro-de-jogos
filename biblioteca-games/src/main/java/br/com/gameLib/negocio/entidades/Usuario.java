@@ -1,7 +1,6 @@
-package br.com.negocio.entidades;
+package br.com.gameLib.negocio.entidades;
 
-import java.util.Date;
-
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,27 +8,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
-@Entity(name = "USUARIO")
-public class Usuario {
+@Entity
+@Table(name = "TB_USUARIO")
+public class Usuario extends BaseEntity {
 
 	@Id
 	@SequenceGenerator(name = "usuarioGenerator", sequenceName = "USUARIO_SQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuarioGenerator")
 	private long id;
 
+	@Column(name = "NM_USUARIO")
 	private String nome;
-
+	
+	@Column(name = "GENERO")
 	private boolean genero;
-
+	
+	@Column(name = "LOGIN")
 	private String login;
 
+	@Column(name = "PASSWORD")
 	private String senha;
-
-	private Date dtInclusao;
-
-	private Date dtAlteracao;
 
 	@Transient
 	private int idade;
@@ -43,7 +44,7 @@ public class Usuario {
 	@Embedded
 	private Documento documento;
 
-	public Usuario(long id, String nome, boolean genero, String login, String senha, Date dtInclusao, Date dtAlteracao,
+	public Usuario(long id, String nome, boolean genero, String login, String senha,
 			int idade, TipoUsuario tpUsuario, Endereco endereco, Documento documento) {
 		super();
 		this.nome = nome;
@@ -51,8 +52,6 @@ public class Usuario {
 		this.login = login;
 		this.senha = senha;
 		this.idade = idade;
-		this.dtInclusao = dtInclusao;
-		this.dtAlteracao = dtAlteracao;
 		this.tpUsuario = tpUsuario;
 		this.endereco = endereco;
 		this.documento = documento;
@@ -104,22 +103,6 @@ public class Usuario {
 
 	public void setIdade(int idade) {
 		this.idade = idade;
-	}
-
-	public Date getDtInclusao() {
-		return dtInclusao;
-	}
-
-	public void setDtInclusao(Date dtInclusao) {
-		this.dtInclusao = dtInclusao;
-	}
-
-	public Date getDtAlteracao() {
-		return dtAlteracao;
-	}
-
-	public void setDtAlteracao(Date dtAlteracao) {
-		this.dtAlteracao = dtAlteracao;
 	}
 
 	public TipoUsuario getTpUsuario() {

@@ -1,4 +1,4 @@
-package br.com.negocio.entidades;
+package br.com.gameLib.negocio.entidades;
 
 import java.util.Date;
 
@@ -18,12 +18,7 @@ public class Endereco {
 
 	private String pais;
 
-	private Date dtInclusao;
-
-	private Date dtAlteracao;
-
-	public Endereco(long id, String cep, String rua, String bairro, String cidade, String estado, String pais,
-			Date dtInclusao, Date dtAlteracao) {
+	public Endereco(long id, String cep, String rua, String bairro, String cidade, String estado, String pais) {
 		super();
 		this.id = id;
 		this.cep = cep;
@@ -32,8 +27,6 @@ public class Endereco {
 		this.cidade = cidade;
 		this.estado = estado;
 		this.pais = pais;
-		this.dtInclusao = dtInclusao;
-		this.dtAlteracao = dtAlteracao;
 	}
 
 	public long getId() {
@@ -90,22 +83,6 @@ public class Endereco {
 
 	public void setPais(String pais) {
 		this.pais = pais;
-	}
-
-	public Date getDtInclusao() {
-		return dtInclusao;
-	}
-
-	public void setDtInclusao(Date dtInclusao) {
-		this.dtInclusao = dtInclusao;
-	}
-
-	public Date getDtAlteracao() {
-		return dtAlteracao;
-	}
-
-	public void setDtAlteracao(Date dtAlteracao) {
-		this.dtAlteracao = dtAlteracao;
 	}
 
 }

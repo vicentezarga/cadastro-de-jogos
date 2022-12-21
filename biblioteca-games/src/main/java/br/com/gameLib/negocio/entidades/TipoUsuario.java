@@ -1,10 +1,11 @@
-package br.com.negocio.entidades;
+package br.com.gameLib.negocio.entidades;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,24 +14,23 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
-@Entity(name = "TP_USUARIO")
-public class TipoUsuario {
+@Entity(name = "TB_TIPO_USUARIO")
+public class TipoUsuario extends BaseEntity{
 
 	@Id
 	@SequenceGenerator(name = "tpUsuarioGenerator", sequenceName = "SQ_TP_USUARIO")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tpUsuarioGenerator")
 	private long id;
 
+	@Column(name = "CD_TP_USUARIO")
 	private String codTipoUser;
 
+	@Column(name = "DS_TIPO_USUARIO")
 	private String descricao;
 
 	@OneToMany(mappedBy = "tpUsuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private ArrayList<Usuario> colecaoUsuario;
 
-	private Date dtInclusao;
-
-	private Date dtAlteracao;
 
 	public TipoUsuario(long id, String codTipoUser, String descricao, ArrayList<Usuario> colecaoUsuario,
 			Date dtInclusao, Date dtAlteracao) {
@@ -39,8 +39,6 @@ public class TipoUsuario {
 		this.codTipoUser = codTipoUser;
 		this.descricao = descricao;
 		this.colecaoUsuario = colecaoUsuario;
-		this.dtInclusao = dtInclusao;
-		this.dtAlteracao = dtAlteracao;
 	}
 
 	public long getId() {
@@ -75,21 +73,4 @@ public class TipoUsuario {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
-	public Date getDtInclusao() {
-		return dtInclusao;
-	}
-
-	public void setDtInclusao(Date dtInclusao) {
-		this.dtInclusao = dtInclusao;
-	}
-
-	public Date getDtAlteracao() {
-		return dtAlteracao;
-	}
-
-	public void setDtAlteracao(Date dtAlteracao) {
-		this.dtAlteracao = dtAlteracao;
-	}
-
 }
