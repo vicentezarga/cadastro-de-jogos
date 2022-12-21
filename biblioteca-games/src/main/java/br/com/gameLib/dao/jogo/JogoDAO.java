@@ -14,4 +14,6 @@ public interface JogoDAO {
 	
 	public List<Jogo> getAll();
 	
+	public boolean existe(Long id);
+	
 }

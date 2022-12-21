@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import br.com.gameLib.negocio.entidades.Jogo;
 
@@ -17,7 +20,7 @@ public class JogoDaoIMPL implements JogoDAO {
 
 	@Override
 	public void salvar(Jogo jogo) {
-		
+
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		em.persist(jogo);
@@ -42,6 +45,18 @@ public class JogoDaoIMPL implements JogoDAO {
 	public List<Jogo> getAll() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean existe(Long id) {
+
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+
+		CriteriaQuery<Jogo> query = cb.createQuery(Jogo.class);
+
+		Root<Jogo> root = query.from(Jogo.class);
+
+		return false;
 	}
 
 }
